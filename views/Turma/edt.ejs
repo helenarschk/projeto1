@@ -1,0 +1,23 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Editar Turma</h1>
+<div>
+<a href="/turma/lst">Listar</a>
+</div>
+<div>
+    <form  method="post">
+       
+        <input type="hidden" name="id" 
+        value="<%=Turma.id%>"><br>
+        <label>Nome:</label>
+        <input type="text" name="nome" 
+        value="<%=Turma.nome%>"><br>
+         <label>Matrícula:</label>
+        <input type="text" name="matricula"
+        value="<%=Turma.matricula%>"
+        ><br>
+        <button type="submit">Cadastrar</button>
+        
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>

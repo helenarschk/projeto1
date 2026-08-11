@@ -1,0 +1,19 @@
+<%-include('../cabecalho.ejs')%>
+    <h1>Turmas</h1>
+    <a href="/turma/add">+ Turma</a>
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>Nível</td>
+            <td>Ações</td>
+        </tr>
+      
+        <%for (const {nome, nivel} of Turmas) {%>
+        <tr>
+            <td><%=nome%></td>
+            <td><%=nivel%></td>
+            <td></td>
+        </tr>
+        <%}%>
+    </table>
+ <%-include('../rodape.ejs')%>

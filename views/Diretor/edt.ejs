@@ -1,0 +1,23 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Editar Diretor</h1>
+<div>
+<a href="/diretor/lst">Listar</a>
+</div>
+<div>
+    <form  method="post">
+       
+        <input type="hidden" name="id" 
+        value="<%=Diretor.id%>"><br>
+        <label>Nome:</label>
+        <input type="text" name="nome" 
+        value="<%=Diretor.nome%>"><br>
+         <label>Matrícula:</label>
+        <input type="text" name="matricula"
+        value="<%=Diretor.matricula%>"
+        ><br>
+        <button type="submit">Cadastrar</button>
+        
+    </form>
+</div>
+
+<%-include('../rodape.ejs')%>
