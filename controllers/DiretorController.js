@@ -12,23 +12,23 @@ export default class DiretorController{
         this.add = async(req, res)=>{
             //cria o Diretor
            
-            await Turma.create({
+            await Genero.create({
                 nome: req.body.nome,
-                turma: req.body.turma,
+                Genero: req.body.Genero,
                 foto: req.body.foto
             });
             res.redirect('/'+caminhoBase + 'add');
         }
         this.list = async(req, res)=>{
-            const resultado = await Turma.find({})
-            res.render(caminhoBase + 'lst', {Turmas:resultado})
+            const resultado = await Genero.find({})
+            res.render(caminhoBase + 'lst', {Generos:resultado})
         }
         this.find = async(req, res)=>{
             const filtro = req.body.filtro;
             const resultado = await 
-            Turma.find({ nome: { $regex: filtro,
+            Genero.find({ nome: { $regex: filtro,
                 $options: "i" }})
-            res.render(caminhoBase + 'lst', {Turmas:resultado})
+            res.render(caminhoBase + 'lst', {Generos:resultado})
         }
 
      
@@ -37,21 +37,21 @@ export default class DiretorController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Turma = await Turma.findById(id) 
-            console.log(Turma)
+            const Genero = await Genero.findById(id) 
+            console.log(Genero)
             res.render(caminhoBase + "edt", 
-                {Turma:Turma})
+                {Genero:Genero})
         }
 
 
         this.edt = async(req, res)=>{
-        await Turma.findByIdAndUpdate(req.params.id, req.body)
+        await Genero.findByIdAndUpdate(req.params.id, req.body)
         res.redirect('/'+caminhoBase + 'lst');
         
         }
 
          this.del = async(req, res)=>{
-        await Turma.findByIdAndDelete(req.params.id)
+        await Genero.findByIdAndDelete(req.params.id)
         res.redirect('/'+caminhoBase + 'lst');
         
         }
