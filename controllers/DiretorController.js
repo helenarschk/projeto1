@@ -12,23 +12,23 @@ export default class DiretorController{
         this.add = async(req, res)=>{
             //cria o Diretor
            
-            await Genero.create({
+            await Diretor.create({
                 nome: req.body.nome,
-                Genero: req.body.Genero,
+                Diretor: req.body.Diretor,
                 foto: req.body.foto
             });
             res.redirect('/'+caminhoBase + 'add');
         }
         this.list = async(req, res)=>{
-            const resultado = await Genero.find({})
-            res.render(caminhoBase + 'lst', {Generos:resultado})
+            const resultado = await Diretor.find({})
+            res.render(caminhoBase + 'lst', {Diretores:resultado})
         }
         this.find = async(req, res)=>{
             const filtro = req.body.filtro;
             const resultado = await 
-            Genero.find({ nome: { $regex: filtro,
+            Diretor.find({ nome: { $regex: filtro,
                 $options: "i" }})
-            res.render(caminhoBase + 'lst', {Generos:resultado})
+            res.render(caminhoBase + 'lst', {Diretores:resultado})
         }
 
      
@@ -37,21 +37,21 @@ export default class DiretorController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Genero = await Genero.findById(id) 
-            console.log(Genero)
+            const Diretor = await Diretor.findById(id) 
+            console.log(Diretor)
             res.render(caminhoBase + "edt", 
-                {Genero:Genero})
+                {Diretor:Diretor})
         }
 
 
         this.edt = async(req, res)=>{
-        await Genero.findByIdAndUpdate(req.params.id, req.body)
+        await Diretor.findByIdAndUpdate(req.params.id, req.body)
         res.redirect('/'+caminhoBase + 'lst');
         
         }
 
          this.del = async(req, res)=>{
-        await Genero.findByIdAndDelete(req.params.id)
+        await Diretor.findByIdAndDelete(req.params.id)
         res.redirect('/'+caminhoBase + 'lst');
         
         }

@@ -12,14 +12,14 @@
     <table>
         <tr>
             <td>Nome</td>
-            <td>Matrícula</td>
+            <td>Turma</td>
             <td>Ações</td>
         </tr>
       
-        <%for (const {id, nome, matricula} of Diretores) {%>
+        <%for (const {id, nome, turma, foto} of Diretores) {%>
         <tr>
             <td><%=nome%></td>
-            <td><%=matricula%></td>
+            <td><%=turma%></td>
             <td><a href="/diretor/edt/<%=id%>">Editar</a>
             <a href="/diretor/del/<%=id%>">Excluir</a></td>
         </tr>

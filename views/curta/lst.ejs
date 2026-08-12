@@ -12,14 +12,22 @@
     <table>
         <tr>
             <td>Nome</td>
-            <td>Matrícula</td>
+            <td>Gênero</td>
+            <td>Ano</td>
+            <td>Turma</td>
+            <td>Diretor</td>
+            <td>Link</td>
             <td>Ações</td>
         </tr>
       
-        <%for (const {id, nome, matricula} of Curtas) {%>
+        <%for (const {id, titulo, ficha, genero, anoProducao, turma, sinopse, diretor, link} of Curtas) {%>
         <tr>
-            <td><%=nome%></td>
-            <td><%=matricula%></td>
+            <td><%=titulo%></td>
+            <td><%=genero%></td>
+            <td><%=anoProducao%></td>
+            <td><%=turma%></td>
+            <td><%=diretor%></td>
+            <td><%=link%></td>
             <td><a href="/curta/edt/<%=id%>">Editar</a>
             <a href="/curta/del/<%=id%>">Excluir</a></td>
         </tr>

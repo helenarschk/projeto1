@@ -3,16 +3,17 @@
     <a href="/turma/add">+ Turma</a>
     <table>
         <tr>
-            <td>Nome</td>
-            <td>Nível</td>
+            <td>Semestre de Entrada</td>
+            <td>Curso</td>
             <td>Ações</td>
         </tr>
       
-        <%for (const {nome, nivel} of Turmas) {%>
+        <%for (const {id, semestreEntrada, curso, foto} of Turmas) {%>
         <tr>
-            <td><%=nome%></td>
-            <td><%=nivel%></td>
-            <td></td>
+            <td><%=semestreEntrada%></td>
+            <td><%=curso%></td>
+            <td><a href="/turma/edt/<%=id%>">Editar</a>
+            <a href="/turma/del/<%=id%>">Excluir</a></td>
         </tr>
         <%}%>
     </table>
