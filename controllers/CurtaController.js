@@ -42,10 +42,10 @@ export default class CurtaController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Curta = await Curta.findById(id) 
-            console.log(Curta)
+            const curta = await Curta.findById(id) 
+            console.log(curta)
             res.render(caminhoBase + "edt", 
-                {Curta:Curta})
+                {Curta:curta})
         }
 
 

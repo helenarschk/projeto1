@@ -37,10 +37,10 @@ export default class DiretorController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Diretor = await Diretor.findById(id) 
-            console.log(Diretor)
+            const diretor = await Diretor.findById(id) 
+            console.log(diretor)
             res.render(caminhoBase + "edt", 
-                {Diretor:Diretor})
+                {Diretor:diretor})
         }
 
 

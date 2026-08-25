@@ -35,10 +35,10 @@ export default class GeneroController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Genero = await Genero.findById(id) 
-            console.log(Genero)
+            const genero = await Genero.findById(id) 
+            console.log(genero)
             res.render(caminhoBase + "edt", 
-                {Genero:Genero})
+                {Genero:genero})
         }
 
 

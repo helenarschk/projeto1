@@ -37,10 +37,10 @@ export default class TurmaController{
             //passar quem eu quero editar
             const id = req.params.id
             console.log(id)
-            const Turma = await Turma.findById(id) 
-            console.log(Turma)
+            const turma = await Turma.findById(id) 
+            console.log(turma)
             res.render(caminhoBase + "edt", 
-                {Turma:Turma})
+                {Turma:turma})
         }
 
 
