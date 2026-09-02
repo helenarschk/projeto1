@@ -56,5 +56,24 @@ export default class TurmaController{
         
         }
 
+        this.add = async(req, res)=>{
+                    //cria a Turma
+                   let fotoEnviada
+                   if(req.file!=null){
+                    console.log(" foi")
+                    fotoEnviada = req.file.buffer
+                   }
+                   else{
+                    console.log("nao foi")
+                    fotoEnviada = null
+                   }
+                    
+                    await Turma.create({
+                        semestreEntrada: req.body.semestreEntrada,
+                        curso: req.body.curso,
+                        foto:fotoEnviada
+                    });
+                    res.redirect('/'+caminhoBase + 'add');
+                }
     }
 }

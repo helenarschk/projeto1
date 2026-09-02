@@ -4,11 +4,11 @@
 <a href="/diretor/lst">Listar</a>
 </div>
 <div>
-    <form  method="post">
+    <form  method="post" enctype="multipart/form-data">
         <label>Nome:</label>
         <input type="text" name="nome"><br>
-         <label>Turma:</label>
-        <input type="text" name="turma"><br>
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" ><br>
         <button type="submit">Cadastrar</button>
         
     </form>

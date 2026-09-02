@@ -4,11 +4,13 @@
 <a href="/turma/lst">Listar</a>
 </div>
 <div>
-    <form  method="post">
+    <form  method="post" enctype="multipart/form-data">
         <label>Semestre de Entrada:</label>
         <input type="text" name="semestreEntrada"><br>
          <label>Curso:</label>
         <input type="text" name="curso"><br>
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" ><br>
         <button type="submit">Cadastrar</button>
         
     </form>

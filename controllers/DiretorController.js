@@ -56,5 +56,24 @@ export default class DiretorController{
         
         }
 
+        this.add = async(req, res)=>{
+            //cria o Diretor
+           let fotoEnviada
+           if(req.file!=null){
+            console.log(" foi")
+            fotoEnviada = req.file.buffer
+           }
+           else{
+            console.log("nao foi")
+            fotoEnviada = null
+           }
+            
+            await Diretor.create({
+                nome: req.body.nome,
+                turma:req.body.turma,
+                foto:fotoEnviada
+            });
+            res.redirect('/'+caminhoBase + 'add');
+        }
     }
 }
