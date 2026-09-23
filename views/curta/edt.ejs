@@ -17,25 +17,46 @@
         <input type="text" name="ficha"
         value="<%=Curta.ficha%>"><br>
         
-        <label>Gênero:</label>
-        <input type="text" name="genero"
-        value="<%=Curta.genero%>"><br>
+        <select name="genero" id="genero" class="form-control"><br>
+                <option value="">Selecione</option>
+                <%Generos.forEach(function(genero){%>
+                    <option value='<%=genero.id%>'>
+                        <%=genero.nome%>
+                    </option>
+                    <%})%>
+            <option value="<%=genero.id%>" <%= (genero.id.toString() === Jogo.genero.toString()) ? 'selected' : '' %>
+            ><%=genero.nome%></option>
+        </select><br>
         
         <label>Ano de produção:</label>
         <input type="text" name="anoProducao"
         value="<%=Curta.anoProducao%>"><br>
         
-        <label>Turma:</label>
-        <input type="text" name="turma"
-        value="<%=Curta.turma%>"><br>
+        <select name="turma" id="turma" class="form-control"><br>
+                <option value="">Selecione</option>
+                <%Turmas.forEach(function(turma){%>
+                    <option value='<%=turma.id%>'>
+                        <%=turma.nome%>
+                    </option>
+                    <%})%>
+            <option value="<%=turma.id%>" <%= (turma.id.toString() === Curta.turma.toString()) ? 'selected' : '' %>
+            ><%=turma.nome%></option>
+        </select><br>
         
         <label>Sinopse:</label>
         <input type="text" name="sinopse"
         value="<%=Curta.sinopse%>"><br>
 
-        <label>Diretor:</label>
-        <input type="text" name="diretor"
-        value="<%=Curta.diretor%>"><br>
+        <select name="diretor" id="diretor" class="form-control"><br>
+                <option value="">Selecione</option>
+                <%Diretores.forEach(function(diretor){%>
+                    <option value='<%=diretor.id%>'>
+                        <%=diretor.nome%>
+                    </option>
+                    <%})%>
+            <option value="<%=diretor.id%>" <%= (diretor.id.toString() === Curta.diretor.toString()) ? 'selected' : '' %>
+            ><%=diretor.nome%></option>
+        </select><br>
 
         <label>Link:</label>
         <input type="text" name="link"

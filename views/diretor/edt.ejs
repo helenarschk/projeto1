@@ -8,17 +8,26 @@
        
         <input type="hidden" name="id" 
         value="<%=Diretor.id%>"><br>
+
         <label>Nome:</label>
         <input type="text" name="nome" 
         value="<%=Diretor.nome%>"><br>
-         <label>Turma:</label>
-        <input type="text" name="turma"
-        value="<%=Diretor.turma%>"
-        ><br>
+
+        <select name="turma" id="turma" class="form-control"><br>
+                <option value="">Selecione</option>
+                <%Turmas.forEach(function(turma){%>
+                    <option value='<%=turma.id%>'>
+                        <%=turma.semestreEntrada%>
+                    </option>
+                    <%})%>
+            <option value="<%=turma.id%>" <%= (turma.id.toString() === Diretor.turma.toString()) ? 'selected' : '' %>
+            ><%=turma.semestreEntrada%></option>
+        </select><br>
+
         <label for="foto">Foto:</label>
         <input type="file" id="foto" name="foto"
-        value="<%=Diretor.foto%>" 
-        ><br>
+        value="<%=Diretor.foto%>"><br>
+
         <button type="submit">Cadastrar</button>
         
     </form>

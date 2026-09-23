@@ -1,5 +1,8 @@
 //importar o Model
 import Curta from '../models/curta.js'
+import Genero from '../models/genero.js'
+import Turma from '../models/turma.js'
+import Diretor from '../models/diretor.js'
 
 export default class CurtaController{
 
@@ -12,20 +15,38 @@ export default class CurtaController{
         this.add = async(req, res)=>{
             //cria o Curta
            
+            let dgenero = null;
+            if (req.body.genero != null)
+            {
+                dgenero = await Genero.findById(req.body.genero)
+            }
+
+            let dturma = null;
+            if (req.body.turma != null)
+            {
+                dturma = await Turma.findById(req.body.turma)
+            }
+
+            let ddiretor = null;
+            if (req.body.diretor != null)
+            {
+                ddiretor = await Diretor.findById(req.body.diretor)
+            }
+
             await Curta.create({
                 titulo: req.body.titulo,
                 ficha: req.body.ficha,
-                genero: req.body.genero,
+                genero: cgenero,
                 anoProducao: req.body.anoProducao,
-                turma: req.body.turma,
+                turma: cturma,
                 sinopse: req.body.sinopse,
-                diretor: req.body.diretor,
+                diretor: cdiretor,
                 link: req.body.link
             });
             res.redirect('/'+caminhoBase + 'add');
         }
         this.list = async(req, res)=>{
-            const resultado = await Curta.find({})
+            const resultado = await Curta.find({}).populate('genero').populate('turma').populate('diretor')
             res.render(caminhoBase + 'lst', {Curtas:resultado})
         }
         this.find = async(req, res)=>{
@@ -44,8 +65,11 @@ export default class CurtaController{
             console.log(id)
             const curta = await Curta.findById(id) 
             console.log(curta)
+            const cgenero = await Genero.find({});
+            const cturma = await Turma.find({});
+            const cdiretor = await Diretor.find({});
             res.render(caminhoBase + "edt", 
-                {Curta:curta})
+                {Curta: curta, Generos: cgenero, Turmas: cturma, Diretores: cdiretor})
         }
 
 

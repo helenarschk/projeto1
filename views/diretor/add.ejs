@@ -7,6 +7,19 @@
     <form  method="post" enctype="multipart/form-data">
         <label>Nome:</label>
         <input type="text" name="nome"><br>
+
+        <div class="mb-3">
+        <label for="turma" class="form-label">Turma</label>
+        <select name="turma" id="turma" class="form-control">
+        <option value="">selecione</option>
+        <%Turmas.forEach(function(turma){%>
+        <option value='<%=turma.id%>'>
+        <%=turma.semestreEntrada%>
+        </option>
+        <%})%>
+        </select>
+        </div><br>
+
         <label for="foto">Foto:</label>
         <input type="file" id="foto" name="foto" ><br>
         <button type="submit">Cadastrar</button>

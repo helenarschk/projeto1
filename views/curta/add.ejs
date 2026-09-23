@@ -7,20 +7,55 @@
     <form  method="post">
         <label>Título:</label>
         <input type="text" name="titulo"><br>
+
          <label>Ficha:</label>
         <input type="text" name="ficha"><br>
-        <label>Gênero:</label>
-        <input type="text" name="genero"><br>
+
+        <div class="mb-3">
+        <label for="genero" class="form-label">Gênero</label>
+        <select name="genero" id="genero" class="form-control">
+        <option value="">selecione</option>
+        <%Generos.forEach(function(genero){%>
+        <option value='<%=genero.id%>'>
+        <%=genero.nome%>s
+        </option>
+        <%})%>
+        </select>
+        </div><br>
+
          <label>Ano de produção:</label>
         <input type="number" name="anoProducao"><br>
-        <label>Turma:</label>
-        <input type="text" name="turma"><br>
+
+        <div class="mb-3">
+        <label for="turma" class="form-label">Turma</label>
+        <select name="turma" id="turma" class="form-control">
+        <option value="">selecione</option>
+        <%Turmas.forEach(function(turma){%>
+        <option value='<%=turma.id%>'>
+        <%=turma.semestreEntrada%>
+        </option>
+        <%})%>
+        </select>
+        </div><br>
+
          <label>Sinopse:</label>
         <input type="text" name="sinopse"><br>
-        <label>Diretor:</label>
-        <input type="text" name="diretor"><br>
+
+        <div class="mb-3">
+        <label for="diretor" class="form-label">Diretor</label>
+        <select name="diretor" id="diretor" class="form-control">
+        <option value="">selecione</option>
+        <%Diretores.forEach(function(diretor){%>
+        <option value='<%=diretor.id%>'>
+        <%=diretor.nome%>
+        </option>
+        <%})%>
+        </select>
+        </div><br>
+
          <label>Link:</label>
         <input type="text" name="link"><br>
+
         <button type="submit">Cadastrar</button>
         
     </form>

@@ -1,5 +1,6 @@
 //importar o Model
 import Diretor from '../models/diretor.js'
+import Turma from '../models/turma.js'
 
 export default class DiretorController{
 
@@ -9,18 +10,33 @@ export default class DiretorController{
         this.openAdd = async(req, res)=>{
             res.render(caminhoBase + "add")
         }
+
+        this.openAdd = async(req, res)=>{
+        // Buscar a entidade relacionada para permitir seleção
+        const resultado = await Turma.find({});
+        // Enviar na renderização a lista de turmas
+        res.render(caminhoBase + "add", {
+        Turmas: resultado})
+}
+        
         this.add = async(req, res)=>{
             //cria o Diretor
            
+            let dturma = null;
+            if (req.body.genero != null)
+            {
+                dturma = await Turma.findById(req.body.turma)
+            }
+
             await Diretor.create({
                 nome: req.body.nome,
-                Diretor: req.body.Diretor,
+                turma: dturma,
                 foto: req.body.foto
             });
             res.redirect('/'+caminhoBase + 'add');
         }
         this.list = async(req, res)=>{
-            const resultado = await Diretor.find({})
+            const resultado = await Diretor.find({}).populate('turma')
             res.render(caminhoBase + 'lst', {Diretores:resultado})
         }
         this.find = async(req, res)=>{
@@ -39,8 +55,9 @@ export default class DiretorController{
             console.log(id)
             const diretor = await Diretor.findById(id) 
             console.log(diretor)
+            const dturma = await Turma.find({});
             res.render(caminhoBase + "edt", 
-                {Diretor:diretor})
+                {Diretor: diretor, Turmas: dturma})
         }
 
 

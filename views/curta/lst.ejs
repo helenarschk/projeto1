@@ -11,7 +11,7 @@
     <a href="/curta/add">+ Curta</a>
     <table>
         <tr>
-            <td>Nome</td>
+            <td>Título</td>
             <td>Gênero</td>
             <td>Ano</td>
             <td>Turma</td>
@@ -23,10 +23,10 @@
         <%for (const {id, titulo, ficha, genero, anoProducao, turma, sinopse, diretor, link} of Curtas) {%>
         <tr>
             <td><%=titulo%></td>
-            <td><%=genero%></td>
+            <td><%=genero != null ? genero.nome : ""%></td>
             <td><%=anoProducao%></td>
-            <td><%=turma%></td>
-            <td><%=diretor%></td>
+            <td><%=turma != null ? turma.semestreEntrada : ""%></td>
+            <td><%=diretor != null ? diretor.nome : ""%></td>
             <td><%=link%></td>
             <td><a href="/curta/edt/<%=id%>">Editar</a>
             <a href="/curta/del/<%=id%>">Excluir</a></td>
