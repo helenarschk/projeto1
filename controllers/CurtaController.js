@@ -10,80 +10,101 @@ export default class CurtaController{
         this.caminhoBase = caminhoBase
     
         this.openAdd = async(req, res)=>{
-            res.render(caminhoBase + "add")
+            const cgenero = await Genero.find({});
+            const cturma = await Turma.find({});
+            const cdiretor = await Diretor.find({});
+
+            res.render(this.caminhoBase + "add", {
+                Generos: cgenero,
+                Turmas: cturma,
+                Diretores: cdiretor
+            })
         }
+
         this.add = async(req, res)=>{
-            //cria o Curta
-           
             let dgenero = null;
-            if (req.body.genero != null)
-            {
+            if (req.body.genero && req.body.genero !== '') {
                 dgenero = await Genero.findById(req.body.genero)
             }
 
             let dturma = null;
-            if (req.body.turma != null)
-            {
+            if (req.body.turma && req.body.turma !== '') {
                 dturma = await Turma.findById(req.body.turma)
             }
 
             let ddiretor = null;
-            if (req.body.diretor != null)
-            {
+            if (req.body.diretor && req.body.diretor !== '') {
                 ddiretor = await Diretor.findById(req.body.diretor)
             }
 
             await Curta.create({
                 titulo: req.body.titulo,
                 ficha: req.body.ficha,
-                genero: cgenero,
+                genero: dgenero,
                 anoProducao: req.body.anoProducao,
-                turma: cturma,
+                turma: dturma,
                 sinopse: req.body.sinopse,
-                diretor: cdiretor,
+                diretor: ddiretor,
                 link: req.body.link
             });
-            res.redirect('/'+caminhoBase + 'add');
+
+            res.redirect('/' + this.caminhoBase + 'add');
         }
+
         this.list = async(req, res)=>{
             const resultado = await Curta.find({}).populate('genero').populate('turma').populate('diretor')
-            res.render(caminhoBase + 'lst', {Curtas:resultado})
+            res.render(this.caminhoBase + 'lst', {Curtas:resultado})
         }
+
         this.find = async(req, res)=>{
-            const filtro = req.body.filtro;
-            const resultado = await 
-            Curta.find({ nome: { $regex: filtro,
-                $options: "i" }})
-            res.render(caminhoBase + 'lst', {Curtas:resultado})
+            const filtro = req.body.filtro || '';
+            const resultado = await Curta.find({
+                titulo: { $regex: filtro, $options: 'i' }
+            })
+            res.render(this.caminhoBase + 'lst', {Curtas:resultado})
         }
 
-     
-
-         this.openEdt = async(req, res)=>{
-            //passar quem eu quero editar
+        this.openEdt = async(req, res)=>{
             const id = req.params.id
-            console.log(id)
-            const curta = await Curta.findById(id) 
-            console.log(curta)
+            const curta = await Curta.findById(id)
+                .populate('genero')
+                .populate('turma')
+                .populate('diretor')
+
             const cgenero = await Genero.find({});
             const cturma = await Turma.find({});
             const cdiretor = await Diretor.find({});
-            res.render(caminhoBase + "edt", 
-                {Curta: curta, Generos: cgenero, Turmas: cturma, Diretores: cdiretor})
-        }
 
+            res.render(this.caminhoBase + "edt", {
+                Curta: curta,
+                Generos: cgenero,
+                Turmas: cturma,
+                Diretores: cdiretor
+            })
+        }
 
         this.edt = async(req, res)=>{
-        await Curta.findByIdAndUpdate(req.params.id, req.body)
-        res.redirect('/'+caminhoBase + 'lst');
-        
+            const genero = req.body.genero && req.body.genero !== '' ? req.body.genero : null;
+            const turma = req.body.turma && req.body.turma !== '' ? req.body.turma : null;
+            const diretor = req.body.diretor && req.body.diretor !== '' ? req.body.diretor : null;
+
+            await Curta.findByIdAndUpdate(req.params.id, {
+                titulo: req.body.titulo,
+                ficha: req.body.ficha,
+                genero,
+                anoProducao: req.body.anoProducao,
+                turma,
+                sinopse: req.body.sinopse,
+                diretor,
+                link: req.body.link
+            })
+
+            res.redirect('/' + this.caminhoBase + 'lst');
         }
 
-         this.del = async(req, res)=>{
-        await Curta.findByIdAndDelete(req.params.id)
-        res.redirect('/'+caminhoBase + 'lst');
-        
+        this.del = async(req, res)=>{
+            await Curta.findByIdAndDelete(req.params.id)
+            res.redirect('/' + this.caminhoBase + 'lst');
         }
-
     }
 }

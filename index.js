@@ -7,7 +7,7 @@ import turmaRoutes from './routes/TurmaRoutes.js'; // rotas externas
 import diretorRoutes from './routes/DiretorRoutes.js'; // rotas externas
 import generoRoutes from './routes/GeneroRoutes.js'; // rotas externas
 
-const PORT = 3001
+const PORT = 3000;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));

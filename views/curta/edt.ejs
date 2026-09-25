@@ -9,9 +9,9 @@
         <input type="hidden" name="id" 
         value="<%=Curta.id%>"><br>
 
-        <label>Nome:</label>
-        <input type="text" name="nome" 
-        value="<%=Curta.nome%>"><br>
+        <label>Título:</label>
+        <input type="text" name="titulo" 
+        value="<%=Curta.titulo%>"><br>
         
         <label>Ficha:</label>
         <input type="text" name="ficha"
@@ -20,12 +20,11 @@
         <select name="genero" id="genero" class="form-control"><br>
                 <option value="">Selecione</option>
                 <%Generos.forEach(function(genero){%>
-                    <option value='<%=genero.id%>'>
+                    <option value='<%=genero.id%>'
+                    <%= (Curta.genero && genero.id.toString() === Curta.genero._id.toString()) ? 'selected' : '' %> >
                         <%=genero.nome%>
                     </option>
-                    <%})%>
-            <option value="<%=genero.id%>" <%= (genero.id.toString() === Jogo.genero.toString()) ? 'selected' : '' %>
-            ><%=genero.nome%></option>
+                <%})%>
         </select><br>
         
         <label>Ano de produção:</label>
@@ -35,12 +34,11 @@
         <select name="turma" id="turma" class="form-control"><br>
                 <option value="">Selecione</option>
                 <%Turmas.forEach(function(turma){%>
-                    <option value='<%=turma.id%>'>
-                        <%=turma.nome%>
+                    <option value='<%=turma.id%>'
+                    <%= (Curta.turma && turma.id.toString() === Curta.turma._id.toString()) ? 'selected' : '' %> >
+                        <%=turma.semestreEntrada%>
                     </option>
-                    <%})%>
-            <option value="<%=turma.id%>" <%= (turma.id.toString() === Curta.turma.toString()) ? 'selected' : '' %>
-            ><%=turma.nome%></option>
+                <%})%>
         </select><br>
         
         <label>Sinopse:</label>
@@ -50,12 +48,11 @@
         <select name="diretor" id="diretor" class="form-control"><br>
                 <option value="">Selecione</option>
                 <%Diretores.forEach(function(diretor){%>
-                    <option value='<%=diretor.id%>'>
+                    <option value='<%=diretor.id%>'
+                    <%= (Curta.diretor && diretor.id.toString() === Curta.diretor._id.toString()) ? 'selected' : '' %> >
                         <%=diretor.nome%>
                     </option>
-                    <%})%>
-            <option value="<%=diretor.id%>" <%= (diretor.id.toString() === Curta.diretor.toString()) ? 'selected' : '' %>
-            ><%=diretor.nome%></option>
+                <%})%>
         </select><br>
 
         <label>Link:</label>
