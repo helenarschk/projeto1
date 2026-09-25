@@ -39,7 +39,6 @@ export default class CurtaController{
 
             await Curta.create({
                 titulo: req.body.titulo,
-                ficha: req.body.ficha,
                 genero: dgenero,
                 anoProducao: req.body.anoProducao,
                 turma: dturma,
@@ -90,7 +89,6 @@ export default class CurtaController{
 
             await Curta.findByIdAndUpdate(req.params.id, {
                 titulo: req.body.titulo,
-                ficha: req.body.ficha,
                 genero,
                 anoProducao: req.body.anoProducao,
                 turma,

@@ -20,7 +20,7 @@
             <td>Ações</td>
         </tr>
       
-        <%for (const {id, titulo, ficha, genero, anoProducao, turma, sinopse, diretor, link} of Curtas) {%>
+        <%for (const {id, titulo, genero, anoProducao, turma, sinopse, diretor, link} of Curtas) {%>
         <tr>
             <td><%=titulo%></td>
             <td><%=genero != null ? genero.nome : ""%></td>
