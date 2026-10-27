@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEIF - Curtas do IFSul Bagé</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+  <!-- Barra Superior de Acessibilidade -->
+  <div class="header-top">
+    <span>📍 IFSul Campus Bagé - Mostra de Curtas</span>
+    <div class="accessibility-bar">
+      <span>Acessibilidade:</span>
+      <button id="btn-font-increase" aria-label="Aumentar Fonte">A+</button>
+      <button id="btn-font-decrease" aria-label="Diminuir Fonte">A-</button>
+      <button id="btn-font-reset" aria-label="Fonte Normal">A</button>
+      <button id="btn-contrast" aria-label="Alternar Alto Contraste">👁️ Contraste</button>
+    </div>
+  </div>
+
+  <!-- Cabeçalho Principal com Navegação -->
+  <header class="main-header">
+    <a href="index.html" class="logo">
+      <div class="logo-badge">CINE</div>
+      <div class="logo-title">IFSul Bagé</div>
+    </a>
+    <nav class="main-nav" aria-label="Navegação Principal">
+      <ul>
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="curtas.html">Curtas</a></li>
+        <li><a href="diretores.html">Diretores</a></li>
+        <li><a href="turmas.html">Turmas</a></li>
+        <li><a href="generos.html">Gêneros</a></li>
+        <li>
+          <a href="#" class="btn-login" id="btn-open-login">🔑 Entrar</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner de Boas-Vindas -->
+  <section class="hero-banner">
+    <h1>🍿 Mostra do Cinema Estudantil</h1>
+    <p>Explore as produções audiovisuais criadas pelos alunos dos cursos do IFSul Campus Bagé.</p>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <h2 class="section-title">🎬 Curtas em Destaque</h2>
+
+    <div class="grid-cards">
+      <!-- Card Curta 1 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500" alt="Cena do curta Memórias de Bagé com plano geral do pampa">
+          <span class="badge-genre">Documentário</span>
+          <span class="badge-year">2024</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Memórias de Bagé</h3>
+          <p class="card-info">
+            Por <a href="diretores.html">Lucas Silveira</a> | <a href="turmas.html">TSI 2023/1</a>
+          </p>
+          <p class="card-synopsis">Um olhar poético sobre o patrimônio histórico e cultural da cidade sob a visão dos estudantes.</p>
+          <div class="card-actions">
+            <a href="curtas.html" class="btn btn-primary">Assistir Curta</a>
+            <button class="btn-fav" aria-label="Adicionar aos favoritos">❤️</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Curta 2 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?w=500" alt="Cena do curta O Algoritmo Misterioso com telas digitais iluminadas">
+          <span class="badge-genre">Ficção Científica</span>
+          <span class="badge-year">2023</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">O Algoritmo Misterioso</h3>
+          <p class="card-info">
+            Por <a href="diretores.html">Mariana Costa</a> | <a href="turmas.html">Informatica 2022/2</a>
+          </p>
+          <p class="card-synopsis">Estudantes do IFSul descobrem um código que prevê os acontecimentos dos corredores do campus.</p>
+          <div class="card-actions">
+            <a href="curtas.html" class="btn btn-primary">Assistir Curta</a>
+            <button class="btn-fav" aria-label="Adicionar aos favoritos">❤️</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Modal de Login/Cadastro -->
+  <div class="modal-overlay" id="login-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-modal" aria-label="Fechar Modal">&times;</button>
+      <h3 id="modal-title" style="margin-bottom: 1rem; color: var(--red-cinema);">Entrar no CINEIF</h3>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required placeholder="seu.email@ifsul.edu.br">
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required placeholder="******">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Acessar Conta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>CINEIF: Curtas do IFSul Bagé</h2>
+        <p>Desenvolvido para a disciplina de Desenvolvimento de Aplicações Web (DAW).</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 IFSul Campus Bagé - Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
