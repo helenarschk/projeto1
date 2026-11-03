@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gêneros Cinematográficos - CINEIF Bagé</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+  <div class="header-top">
+    <span>📍 IFSul Campus Bagé - Mostra de Curtas</span>
+    <div class="accessibility-bar">
+      <button id="btn-font-increase">A+</button>
+      <button id="btn-font-decrease">A-</button>
+      <button id="btn-font-reset">A</button>
+      <button id="btn-contrast">👁️ Contraste</button>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <a href="/" class="logo">
+      <div class="logo-badge">CINE</div>
+      <div class="logo-title">IFSul Bagé</div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/curtas">Curtas</a></li>
+        <li><a href="/diretores">Diretores</a></li>
+        <li><a href="/turmas">Turmas</a></li>
+        <li><a href="/generos" class="active">Gêneros</a></li>
+        <li><a href="#" class="btn-login" id="btn-open-login">🔑 Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    <h1 class="section-title">🏷️ Gêneros Cinematográficos</h1>
+
+    <div class="grid-cards">
+      <!-- Gênero Documentário -->
+      <article class="card-ticket">
+        <div class="card-body" style="background: var(--beige-film);">
+          <h2 class="card-title" style="color: var(--red-cinema);">📹 Documentário</h2>
+          <p class="card-synopsis">Filmes focados na realidade, resgate histórico, registros sociais e patrimoniais de Bagé e região.</p>
+          <div style="border-top: 1px dashed #CCC; padding-top: 0.8rem; margin-top: 0.5rem;">
+            <strong>Curtas neste gênero:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
+              <li><a href="/curtas">Memórias de Bagé</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gênero Ficção Científica -->
+      <article class="card-ticket">
+        <div class="card-body" style="background: #E8F5E9;">
+          <h2 class="card-title" style="color: var(--green-ifsul);">🚀 Ficção Científica</h2>
+          <p class="card-synopsis">Histórias futuristas, inteligência artificial, viagens no tempo e tecnologia no cotidiano dos alunos.</p>
+          <div style="border-top: 1px dashed #CCC; padding-top: 0.8rem; margin-top: 0.5rem;">
+            <strong>Curtas neste gênero:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
+              <li><a href="/curtas">O Algoritmo Misterioso</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Gênero Drama -->
+      <article class="card-ticket">
+        <div class="card-body" style="background: #F3E5F5;">
+          <h2 class="card-title" style="color: var(--purple-vip);">🎭 Drama</h2>
+          <p class="card-synopsis">Narrativas com forte apelo emocional e dilemas do cotidiano acadêmico e pessoal.</p>
+          <div style="border-top: 1px dashed #CCC; padding-top: 0.8rem; margin-top: 0.5rem;">
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Nenhum curta cadastrado neste gênero no momento.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 IFSul Campus Bagé</div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

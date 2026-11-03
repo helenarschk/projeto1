@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turmas - CINEIF Bagé</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+  <div class="header-top">
+    <span>📍 IFSul Campus Bagé - Mostra de Curtas</span>
+    <div class="accessibility-bar">
+      <button id="btn-font-increase">A+</button>
+      <button id="btn-font-decrease">A-</button>
+      <button id="btn-font-reset">A</button>
+      <button id="btn-contrast">👁️ Contraste</button>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <a href="/" class="logo">
+      <div class="logo-badge">CINE</div>
+      <div class="logo-title">IFSul Bagé</div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/curtas">Curtas</a></li>
+        <li><a href="/diretores">Diretores</a></li>
+        <li><a href="/turmas" class="active">Turmas</a></li>
+        <li><a href="/generos">Gêneros</a></li>
+        <li><a href="#" class="btn-login" id="btn-open-login">🔑 Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    <h1 class="section-title">🏫 Turmas do IFSul Bagé</h1>
+
+    <div class="grid-cards">
+      <!-- Turma 1 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500" alt="Foto da turma de Informática">
+          <span class="badge-year">2022/2</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Técnico em Informática</h2>
+          <p class="card-info">Semestre de Entrada: 2022/2</p>
+          <p class="card-synopsis">Turma responsável pela produção de obras de ficção e suspense tecnológico.</p>
+          <div style="margin-top: 0.8rem;">
+            <strong>🎬 Produções da Turma:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
+              <li><a href="/curtas">O Algoritmo Misterioso</a> (Dir. Mariana Costa)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Turma 2 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500" alt="Foto da turma de Sistemas para Internet">
+          <span class="badge-year">2023/1</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Tecnologia em Sistemas para Internet (TSI)</h2>
+          <p class="card-info">Semestre de Entrada: 2023/1</p>
+          <p class="card-synopsis">Turma dedicada a documentários e produções de impacto social e regional.</p>
+          <div style="margin-top: 0.8rem;">
+            <strong>🎬 Produções da Turma:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
+              <li><a href="/curtas">Memórias de Bagé</a> (Dir. Lucas Silveira)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 IFSul Campus Bagé</div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curtas-Metragens - CINEIF Bagé</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+  <!-- Barra Superior de Acessibilidade -->
+  <div class="header-top">
+    <span>📍 IFSul Campus Bagé - Mostra de Curtas</span>
+    <div class="accessibility-bar">
+      <span>Acessibilidade:</span>
+      <button id="btn-font-increase">A+</button>
+      <button id="btn-font-decrease">A-</button>
+      <button id="btn-font-reset">A</button>
+      <button id="btn-contrast">👁️ Contraste</button>
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
+  <header class="main-header">
+    <a href="/" class="logo">
+      <div class="logo-badge">CINE</div>
+      <div class="logo-title">IFSul Bagé</div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/curtas" class="active">Curtas</a></li>
+        <li><a href="/diretores">Diretores</a></li>
+        <li><a href="/turmas">Turmas</a></li>
+        <li><a href="/generos">Gêneros</a></li>
+        <li><a href="#" class="btn-login" id="btn-open-login">🔑 Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    <h1 class="section-title">🎥 Acervo de Curtas-Metragens</h1>
+
+    <!-- Barra de Pesquisa -->
+    <div class="search-filter-bar">
+      <div class="search-input-group">
+        <input type="text" id="input-search-curtas" placeholder="🔍 Pesquisar curta por título, sinopse ou diretor..." onkeyup="filterCards(this.value, '.card-ticket')">
+      </div>
+    </div>
+
+    <!-- Lista de Curtas -->
+    <div class="grid-cards">
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500" alt="Poster do filme Memórias de Bagé">
+          <span class="badge-genre">Documentário</span>
+          <span class="badge-year">2024</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Memórias de Bagé</h2>
+          <p class="card-info">
+            Direção: <a href="/diretores">Lucas Silveira</a> | Turma: <a href="/turmas">TSI 2023/1</a>
+          </p>
+          <p class="card-synopsis">Um olhar poético sobre o patrimônio histórico e cultural da cidade de Bagé.</p>
+          
+          <div style="margin: 1rem 0; padding: 0.8rem; background: var(--beige-film); border-radius: 8px;">
+            <strong>⭐ Avaliação:</strong> 4.8 / 5 (12 votos)
+            <br>
+            <strong>💬 Comentários:</strong> "Incrível trabalho!" - Ana
+          </div>
+
+          <div class="card-actions">
+            <a href="https://youtube.com" target="_blank" class="btn btn-primary">▶ Assustar no YouTube</a>
+            <button class="btn-fav" aria-label="Favoritar">❤️</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?w=500" alt="Poster do filme O Algoritmo Misterioso">
+          <span class="badge-genre">Ficção Científica</span>
+          <span class="badge-year">2023</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">O Algoritmo Misterioso</h2>
+          <p class="card-info">
+            Direção: <a href="/diretores">Mariana Costa</a> | Turma: <a href="/turmas">Informática 2022/2</a>
+          </p>
+          <p class="card-synopsis">Estudantes do IFSul descobrem um código que prevê o futuro dos corredores do campus.</p>
+          
+          <div style="margin: 1rem 0; padding: 0.8rem; background: var(--beige-film); border-radius: 8px;">
+            <strong>⭐ Avaliação:</strong> 5.0 / 5 (8 votos)
+            <br>
+            <strong>💬 Comentários:</strong> "Roteiro surpreendente!" - Carlos
+          </div>
+
+          <div class="card-actions">
+            <a href="https://youtube.com" target="_blank" class="btn btn-primary">▶ Assistir no YouTube</a>
+            <button class="btn-fav" aria-label="Favoritar">❤️</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 IFSul Campus Bagé</div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

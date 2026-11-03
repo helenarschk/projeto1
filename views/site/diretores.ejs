@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diretores - CINEIF Bagé</title>
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+  <div class="header-top">
+    <span>📍 IFSul Campus Bagé - Mostra de Curtas</span>
+    <div class="accessibility-bar">
+      <button id="btn-font-increase">A+</button>
+      <button id="btn-font-decrease">A-</button>
+      <button id="btn-font-reset">A</button>
+      <button id="btn-contrast">👁️ Contraste</button>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <a href="/" class="logo">
+      <div class="logo-badge">CINE</div>
+      <div class="logo-title">IFSul Bagé</div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/curtas">Curtas</a></li>
+        <li><a href="/diretores" class="active">Diretores</a></li>
+        <li><a href="/turmas">Turmas</a></li>
+        <li><a href="/generos">Gêneros</a></li>
+        <li><a href="#" class="btn-login" id="btn-open-login">🔑 Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top: 2rem;">
+    <h1 class="section-title">🎬 Diretores e Cineastas</h1>
+
+    <div class="search-filter-bar">
+      <div class="search-input-group">
+        <input type="text" placeholder="🔍 Buscar diretor por nome..." onkeyup="filterCards(this.value, '.card-ticket')">
+      </div>
+    </div>
+
+    <div class="grid-cards">
+      <!-- Diretor 1 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto da diretora Mariana Costa">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Mariana Costa</h2>
+          <p class="card-info">Turma: <a href="/turmas">Técnico em Informática (2022/2)</a></p>
+          <p class="card-synopsis">Especializada em direção de ficção científica e montagem digital.</p>
+          <div style="margin-top: 0.5rem;">
+            <strong>🎞️ Curtas Dirigidos:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
+              <li><a href="/curtas">O Algoritmo Misterioso (2023)</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Diretor 2 -->
+      <article class="card-ticket">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Foto do diretor Lucas Silveira">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Lucas Silveira</h2>
+          <p class="card-info">Turma: <a href="/turmas">TSI (2023/1)</a></p>
+          <p class="card-synopsis">Diretor com foco em documentários e resgate de memórias regionais.</p>
+          <div style="margin-top: 0.5rem;">
+            <strong>🎞️ Curtas Dirigidos:</strong>
+            <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
+              <li><a href="/curtas">Memórias de Bagé (2024)</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-copy">&copy; 2026 IFSul Campus Bagé</div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
  
     constructor() {
         this.home = async (req, res) => {
-          res.render('index')
+          res.render('site/index')
         };
 
         this.teste = async (req, res) => {
