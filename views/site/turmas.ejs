@@ -39,43 +39,38 @@
     <h1 class="section-title">🏫 Turmas do IFSul Bagé</h1>
 
     <div class="grid-cards">
-      <!-- Turma 1 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500" alt="Foto da turma de Informática">
-          <span class="badge-year">2022/2</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Técnico em Informática</h2>
-          <p class="card-info">Semestre de Entrada: 2022/2</p>
-          <p class="card-synopsis">Turma responsável pela produção de obras de ficção e suspense tecnológico.</p>
-          <div style="margin-top: 0.8rem;">
-            <strong>🎬 Produções da Turma:</strong>
-            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
-              <li><a href="/curtas">O Algoritmo Misterioso</a> (Dir. Mariana Costa)</li>
-            </ul>
+      <% Turmas.forEach(turma => { %>
+        <% const curtasDaTurma = Curtas.filter(curta => curta.turma && curta.turma._id.toString() === turma._id.toString()) %>
+        <article class="card-ticket">
+          <div class="card-media">
+            <% if (turma.foto) { %>
+              <img src="<%= turma.foto %>" alt="Foto da turma <%= turma.curso %>">
+            <% } else { %>
+              <div class="card-media-placeholder" aria-hidden="true">Sem imagem</div>
+            <% } %>
+            <span class="badge-year"><%= turma.semestreEntrada %></span>
           </div>
-        </div>
-      </article>
-
-      <!-- Turma 2 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500" alt="Foto da turma de Sistemas para Internet">
-          <span class="badge-year">2023/1</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Tecnologia em Sistemas para Internet (TSI)</h2>
-          <p class="card-info">Semestre de Entrada: 2023/1</p>
-          <p class="card-synopsis">Turma dedicada a documentários e produções de impacto social e regional.</p>
-          <div style="margin-top: 0.8rem;">
-            <strong>🎬 Produções da Turma:</strong>
-            <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
-              <li><a href="/curtas">Memórias de Bagé</a> (Dir. Lucas Silveira)</li>
-            </ul>
+          <div class="card-body">
+            <h2 class="card-title"><%= turma.curso %></h2>
+            <p class="card-info">Semestre de entrada: <%= turma.semestreEntrada %></p>
+            <div style="margin-top: 0.8rem;">
+              <strong>🎬 Produções da turma:</strong>
+              <% if (curtasDaTurma.length > 0) { %>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; margin-top: 0.4rem;">
+                  <% curtasDaTurma.forEach(curta => { %>
+                    <li><a href="/curtas"><%= curta.titulo %></a><% if (curta.diretor) { %> (Dir. <%= curta.diretor.nome %>)<% } %></li>
+                  <% }) %>
+                </ul>
+              <% } else { %>
+                <p class="card-synopsis">Nenhum curta cadastrado para esta turma.</p>
+              <% } %>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      <% }) %>
+      <% if (Turmas.length === 0) { %>
+        <p class="card-synopsis">Nenhuma turma cadastrada ainda.</p>
+      <% } %>
     </div>
   </main>
 

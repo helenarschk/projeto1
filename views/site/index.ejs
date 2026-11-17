@@ -51,45 +51,31 @@
     <h2 class="section-title">🎬 Curtas em Destaque</h2>
 
     <div class="grid-cards">
-      <!-- Card Curta 1 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500" alt="Cena do curta Memórias de Bagé com plano geral do pampa">
-          <span class="badge-genre">Documentário</span>
-          <span class="badge-year">2024</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Memórias de Bagé</h3>
-          <p class="card-info">
-            Por <a href="/diretores">Lucas Silveira</a> | <a href="/turmas">TSI 2023/1</a>
-          </p>
-          <p class="card-synopsis">Um olhar poético sobre o patrimônio histórico e cultural da cidade sob a visão dos estudantes.</p>
-          <div class="card-actions">
-            <a href="/curtas" class="btn btn-primary">Assistir Curta</a>
-            <button class="btn-fav" aria-label="Adicionar aos favoritos">❤️</button>
+      <% Curtas.forEach(curta => { %>
+        <article class="card-ticket">
+          <div class="card-media card-media-placeholder" aria-hidden="true">
+            <% if (curta.genero) { %><span class="badge-genre"><%= curta.genero.nome %></span><% } %>
+            <span class="badge-year"><%= curta.anoProducao %></span>
           </div>
-        </div>
-      </article>
-
-      <!-- Card Curta 2 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?w=500" alt="Cena do curta O Algoritmo Misterioso com telas digitais iluminadas">
-          <span class="badge-genre">Ficção Científica</span>
-          <span class="badge-year">2023</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">O Algoritmo Misterioso</h3>
-          <p class="card-info">
-            Por <a href="/diretores">Mariana Costa</a> | <a href="/turmas">Informatica 2022/2</a>
-          </p>
-          <p class="card-synopsis">Estudantes do IFSul descobrem um código que prevê os acontecimentos dos corredores do campus.</p>
-          <div class="card-actions">
-            <a href="/curtas" class="btn btn-primary">Assistir Curta</a>
-            <button class="btn-fav" aria-label="Adicionar aos favoritos">❤️</button>
+          <div class="card-body">
+            <h3 class="card-title"><%= curta.titulo %></h3>
+            <% if (curta.diretor || curta.turma) { %>
+              <p class="card-info">
+                <% if (curta.diretor) { %>Por <a href="/diretores"><%= curta.diretor.nome %></a><% } %>
+                <% if (curta.diretor && curta.turma) { %> | <% } %>
+                <% if (curta.turma) { %><a href="/turmas"><%= curta.turma.curso %> (<%= curta.turma.semestreEntrada %>)</a><% } %>
+              </p>
+            <% } %>
+            <p class="card-synopsis"><%= curta.sinopse %></p>
+            <div class="card-actions">
+              <a href="<%= curta.link %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Assistir curta</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      <% }) %>
+      <% if (Curtas.length === 0) { %>
+        <p class="card-synopsis">Nenhum curta cadastrado ainda.</p>
+      <% } %>
     </div>
   </main>
 

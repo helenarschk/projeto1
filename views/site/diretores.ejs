@@ -45,41 +45,39 @@
     </div>
 
     <div class="grid-cards">
-      <!-- Diretor 1 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto da diretora Mariana Costa">
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Mariana Costa</h2>
-          <p class="card-info">Turma: <a href="/turmas">Técnico em Informática (2022/2)</a></p>
-          <p class="card-synopsis">Especializada em direção de ficção científica e montagem digital.</p>
-          <div style="margin-top: 0.5rem;">
-            <strong>🎞️ Curtas Dirigidos:</strong>
-            <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
-              <li><a href="/curtas">O Algoritmo Misterioso (2023)</a></li>
-            </ul>
+      <% Diretores.forEach(diretor => { %>
+        <% const curtasDoDiretor = Curtas.filter(curta => curta.diretor && curta.diretor._id.toString() === diretor._id.toString()) %>
+        <article class="card-ticket">
+          <div class="card-media">
+            <% if (diretor.foto) { %>
+              <img src="<%= diretor.foto %>" alt="Foto de <%= diretor.nome %>">
+            <% } else { %>
+              <div class="card-media-placeholder" aria-hidden="true">Sem imagem</div>
+            <% } %>
           </div>
-        </div>
-      </article>
-
-      <!-- Diretor 2 -->
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Foto do diretor Lucas Silveira">
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Lucas Silveira</h2>
-          <p class="card-info">Turma: <a href="/turmas">TSI (2023/1)</a></p>
-          <p class="card-synopsis">Diretor com foco em documentários e resgate de memórias regionais.</p>
-          <div style="margin-top: 0.5rem;">
-            <strong>🎞️ Curtas Dirigidos:</strong>
-            <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
-              <li><a href="/curtas">Memórias de Bagé (2024)</a></li>
-            </ul>
+          <div class="card-body">
+            <h2 class="card-title"><%= diretor.nome %></h2>
+            <% if (diretor.turma) { %>
+              <p class="card-info">Turma: <a href="/turmas"><%= diretor.turma.curso %> (<%= diretor.turma.semestreEntrada %>)</a></p>
+            <% } %>
+            <div style="margin-top: 0.5rem;">
+              <strong>🎞️ Curtas dirigidos:</strong>
+              <% if (curtasDoDiretor.length > 0) { %>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
+                  <% curtasDoDiretor.forEach(curta => { %>
+                    <li><a href="/curtas"><%= curta.titulo %> (<%= curta.anoProducao %>)</a></li>
+                  <% }) %>
+                </ul>
+              <% } else { %>
+                <p class="card-synopsis">Nenhum curta cadastrado para este diretor.</p>
+              <% } %>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      <% }) %>
+      <% if (Diretores.length === 0) { %>
+        <p class="card-synopsis">Nenhum diretor cadastrado ainda.</p>
+      <% } %>
     </div>
   </main>
 

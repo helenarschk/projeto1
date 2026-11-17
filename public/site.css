@@ -234,6 +234,14 @@ body {
   object-fit: cover;
 }
 
+.card-media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 0.9rem;
+}
+
 .badge-genre {
   position: absolute;
   top: 12px;

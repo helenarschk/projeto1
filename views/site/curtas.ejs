@@ -50,57 +50,31 @@
 
     <!-- Lista de Curtas -->
     <div class="grid-cards">
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500" alt="Poster do filme Memórias de Bagé">
-          <span class="badge-genre">Documentário</span>
-          <span class="badge-year">2024</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Memórias de Bagé</h2>
-          <p class="card-info">
-            Direção: <a href="/diretores">Lucas Silveira</a> | Turma: <a href="/turmas">TSI 2023/1</a>
-          </p>
-          <p class="card-synopsis">Um olhar poético sobre o patrimônio histórico e cultural da cidade de Bagé.</p>
-          
-          <div style="margin: 1rem 0; padding: 0.8rem; background: var(--beige-film); border-radius: 8px;">
-            <strong>⭐ Avaliação:</strong> 4.8 / 5 (12 votos)
-            <br>
-            <strong>💬 Comentários:</strong> "Incrível trabalho!" - Ana
+      <% Curtas.forEach(curta => { %>
+        <article class="card-ticket">
+          <div class="card-media card-media-placeholder" aria-hidden="true">
+            <% if (curta.genero) { %><span class="badge-genre"><%= curta.genero.nome %></span><% } %>
+            <span class="badge-year"><%= curta.anoProducao %></span>
           </div>
-
-          <div class="card-actions">
-            <a href="https://youtube.com" target="_blank" class="btn btn-primary">▶ Assustar no YouTube</a>
-            <button class="btn-fav" aria-label="Favoritar">❤️</button>
+          <div class="card-body">
+            <h2 class="card-title"><%= curta.titulo %></h2>
+            <% if (curta.diretor || curta.turma) { %>
+              <p class="card-info">
+                <% if (curta.diretor) { %>Direção: <a href="/diretores"><%= curta.diretor.nome %></a><% } %>
+                <% if (curta.diretor && curta.turma) { %> | <% } %>
+                <% if (curta.turma) { %>Turma: <a href="/turmas"><%= curta.turma.curso %> (<%= curta.turma.semestreEntrada %>)</a><% } %>
+              </p>
+            <% } %>
+            <p class="card-synopsis"><%= curta.sinopse %></p>
+            <div class="card-actions">
+              <a href="<%= curta.link %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">▶ Assistir curta</a>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <article class="card-ticket">
-        <div class="card-media">
-          <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?w=500" alt="Poster do filme O Algoritmo Misterioso">
-          <span class="badge-genre">Ficção Científica</span>
-          <span class="badge-year">2023</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">O Algoritmo Misterioso</h2>
-          <p class="card-info">
-            Direção: <a href="/diretores">Mariana Costa</a> | Turma: <a href="/turmas">Informática 2022/2</a>
-          </p>
-          <p class="card-synopsis">Estudantes do IFSul descobrem um código que prevê o futuro dos corredores do campus.</p>
-          
-          <div style="margin: 1rem 0; padding: 0.8rem; background: var(--beige-film); border-radius: 8px;">
-            <strong>⭐ Avaliação:</strong> 5.0 / 5 (8 votos)
-            <br>
-            <strong>💬 Comentários:</strong> "Roteiro surpreendente!" - Carlos
-          </div>
-
-          <div class="card-actions">
-            <a href="https://youtube.com" target="_blank" class="btn btn-primary">▶ Assistir no YouTube</a>
-            <button class="btn-fav" aria-label="Favoritar">❤️</button>
-          </div>
-        </div>
-      </article>
+        </article>
+      <% }) %>
+      <% if (Curtas.length === 0) { %>
+        <p class="card-synopsis">Nenhum curta cadastrado ainda.</p>
+      <% } %>
     </div>
   </main>
 
